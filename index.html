@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiRise Solutions | Digital Growth Agency</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #081225;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #0d1b32;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+         nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+         
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background: linear-gradient(120deg, #081225, #12345a);
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #0ea5e9;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 45px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #14243c;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #263c59;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+        }
+
+        .service-card .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #38bdf8;
+        }
+
+        .service-card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .about {
+            background: #0d1b32;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: 20px auto;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin: 15px 0 25px;
+        }
+
+        footer {
+            background: #050d1a;
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+        }
+
+        @media(max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+        }
+        
+/* Hero Animation */
+.hero-content {
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Service Card Animation */
+.service-card {
+    transition: all 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(56,189,248,0.15);
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 999;
+    box-shadow: 0 5px 20px #0005;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+}
+
+.menu-toggle {
+    display: none;
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        position: sticky;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0d1b32;
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    header nav.active {
+        display: flex;
+    }
+
+    header nav a {
+        margin: 0;
+        font-size: 16px;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    
+<header>
+    <div class="logo">DigiRise Solutions</div>
+
+    <button class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+        ☰
+    </button>
+
+    <nav id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#about">About</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Grow Your Business With <span>Digital Excellence.</span></h1>
+
+            <p>
+                We help businesses grow online through creative digital
+                solutions, modern websites and powerful marketing strategies.
+            </p>
+
+            <a href="#contact" class="btn">Get Started →</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">
+            Smart Digital Solutions For Your Business Growth
+        </p>
+
+        <div class="services">
+
+            <div class="service-card">
+                <div class="icon">💻</div>
+                <h3>Website Development</h3>
+                <p>Modern, responsive and professional websites for your business.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📈</div>
+                <h3>Digital Marketing</h3>
+                <p>Grow your brand with effective digital marketing strategies.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🎨</div>
+                <h3>Graphic Design</h3>
+                <p>Creative designs, branding and social media graphics.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🔍</div>
+                <h3>SEO Optimization</h3>
+                <p>Improve your website visibility and reach more customers.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📱</div>
+                <h3>Social Media Management</h3>
+                <p>Build your online presence and engage your audience.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🤝</div>
+                <h3>Business Consulting</h3>
+                <p>Digital guidance and solutions to support business growth.</p>
+            </div>
+
+        </div>
+    </section>
+    
+<section id="pricing">
+    <h2 class="section-title">Our Pricing Plans</h2>
+    <p class="section-subtitle">
+        Choose the Right Plan for Your Business
+    </p>
+
+    <div class="services">
+
+        <div class="service-card">
+            <div class="icon">🌱</div>
+            <h3>Basic Plan</h3>
+            <h2>₹4,999</h2>
+            <p>Basic Website</p>
+            <p>Mobile Responsive</p>
+            <p>Basic SEO</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🚀</div>
+            <h3>Professional Plan</h3>
+            <h2>₹9,999</h2>
+            <p>Professional Website</p>
+            <p>SEO Optimization</p>
+            <p>Contact Form</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">👑</div>
+            <h3>Premium Plan</h3>
+            <h2>₹19,999</h2>
+            <p>Advanced Website</p>
+            <p>Premium Design</p>
+            <p>Digital Marketing Support</p>
+            <br>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+
+    </div>
+    
+<section id="portfolio">
+    <h2 class="section-title">Our Projects</h2>
+    <p class="section-subtitle">
+        Explore Our Creative Digital Work
+    </p>
+
+    <div class="services">
+
+        <div class="service-card">
+            <div class="icon">🛒</div>
+            <h3>E-Commerce Website</h3>
+            <p>Modern online shopping website design.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🏢</div>
+            <h3>Business Website</h3>
+            <p>Professional website for business brands.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">📱</div>
+            <h3>Social Media Campaign</h3>
+            <p>Creative digital branding and marketing.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2 class="section-title">Client Testimonials</h2>
+    <p class="section-subtitle">
+        What Our Clients Say
+    </p>
+
+    <div class="services">
+
+        <div class="service-card">
+            <div class="icon">⭐⭐⭐⭐⭐</div>
+            <p>"Great website design and professional service."</p>
+            <h3>Client Name</h3>
+            <p>Business Owner</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">⭐⭐⭐⭐⭐</div>
+            <p>"Creative ideas and excellent digital solutions."</p>
+            <h3>Client Name</h3>
+            <p>Entrepreneur</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">⭐⭐⭐⭐⭐</div>
+            <p>"Very helpful team and quality work."</p>
+            <h3>Client Name</h3>
+            <p>Business Owner</p>
+        </div>
+
+    </div>
+</section>
+
+
+</section>
+
+
+    <section class="about" id="about">
+        <h2 class="section-title">About DigiRise Solutions</h2>
+
+        <p>
+            DigiRise Solutions is focused on helping businesses establish
+            a strong digital presence. We combine creativity, technology
+            and smart strategies to deliver digital solutions that help
+            brands move forward.
+        </p>
+
+        <a href="#contact" class="btn">Work With Us</a>
+    </section>
+
+    
+<section class="contact" id="contact">
+
+    <h2 class="section-title">Contact Us</h2>
+
+    <p>Let's discuss your next digital project!</p>
+
+    <form id="contactForm"
+          style="max-width:550px;margin:30px auto;text-align:left;">
+
+        <input type="text"
+               id="name"
+               placeholder="Your Name"
+               required
+               style="width:100%;padding:15px;margin:10px 0;border-radius:7px;">
+
+        <input type="email"
+               id="email"
+               placeholder="Your Email"
+               required
+               style="width:100%;padding:15px;margin:10px 0;border-radius:7px;">
+
+        <input type="text"
+               id="subject"
+               placeholder="Project Subject"
+               required
+               style="width:100%;padding:15px;margin:10px 0;border-radius:7px;">
+
+        <textarea id="message"
+                  placeholder="Tell us about your project..."
+                  required
+                  style="width:100%;height:130px;padding:15px;margin:10px 0;border-radius:7px;"></textarea>
+
+        <button type="submit" class="btn"
+                style="border:0;cursor:pointer;">
+            Send Message
+        </button>
+
+    </form>
+
+</section>
+
+<section id="location">
+    <h2 class="section-title">Our Location</h2>
+    <p class="section-subtitle">
+        Visit DigiRise Solutions
+    </p>
+
+    <div style="max-width:1000px;margin:auto;
+                border-radius:15px;overflow:hidden;">
+
+        <iframe
+            src="https://maps.google.com/maps?q=Nashik%2C%20Maharashtra&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="400"
+            style="border:0;"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+    <p style="text-align:center;margin-top:20px;">
+        📍 Nashik, Maharashtra, India
+    </p>
+</section>
+
+
+<script>
+document.getElementById("contactForm").addEventListener("submit",
+function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    const whatsappNumber = "919876543210";
+
+    const text = `Hello DigiRise Solutions!
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+Message: ${message}`;
+
+    const url = "https://wa.me/" + whatsappNumber +
+                "?text=" + encodeURIComponent(text);
+
+    window.open(url, "_blank");
+});
+</script>
+
+
+    <footer>
+        <p>© 2026 DigiRise Solutions. All Rights Reserved.</p>
+        <p>Building Digital Success 🚀</p>
+    </footer>
+    
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+menuToggle.addEventListener("click", function() {
+    const isOpen = mainNav.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+mainNav.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        mainNav.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+    });
+});
+</script>
+
+
+</body>
+</html>

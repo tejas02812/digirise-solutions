@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiRise Admin Dashboard</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #081225;
+    color: white;
+}
+
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    position: fixed;
+    background: #0d1b32;
+    padding: 25px 15px;
+}
+
+.sidebar h2 {
+    color: #38bdf8;
+    margin-bottom: 35px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 7px;
+}
+
+.sidebar a:hover {
+    background: #164568;
+}
+
+.main {
+    margin-left: 230px;
+    padding: 35px;
+}
+
+.main h1 {
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #14243c;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #263c59;
+}
+
+.card h3 {
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.welcome {
+    background: #12345a;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+@media(max-width: 650px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 12px;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        padding: 8px;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>DigiRise Admin</h2>
+    <a href="admin.html">Dashboard</a>
+    <a href="index.html">View Website</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact">Contact</a>
+</div>
+
+<div class="main">
+
+    <div class="welcome">
+        <h1>Welcome, Admin! 👋</h1>
+        <p>DigiRise Solutions Management Panel</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Website</h3>
+            <p>Online</p>
+        </div>
+
+        <div class="card">
+            <h3>Services</h3>
+            <p>06</p>
+        </div>
+
+        <div class="card">
+            <h3>Projects</h3>
+            <p>03</p>
+        </div>
+
+        <div class="card">
+            <h3>Plans</h3>
+            <p>03</p>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="card">
+        <h2>Quick Actions</h2>
+        <br>
+        <a href="index.html"
+           style="color:#38bdf8;">
+           Open Main Website →
+        </a>
+        <br><br>
+        <a href="index.html#contact"
+           style="color:#38bdf8;">
+           View Contact Section →
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
